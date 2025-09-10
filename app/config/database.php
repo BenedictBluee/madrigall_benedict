@@ -40,7 +40,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | -------------------------------------------------------------------
 | This file will contain the settings needed to access your database.
 | -------------------------------------------------------------------
-| EXPLANATION OF VARIABLE
+| EXPLANATION OF VARIABLES
 | -------------------------------------------------------------------
 |
 |	['driver'] 		The driver of your database server.
@@ -59,11 +59,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 $database['main'] = array(
     'driver'	=> 'mysql',
-    'hostname'	=> getenv("sql12.freesqldatabase.com"),
-    'port'		=> getenv("3306"),
-    'username'	=> getenv("sql12798063"),
-    'password'	=> getenv("nQPdjZh9cI"),
-    'database'	=> getenv("sql12798063"),
+    'hostname'	=> getenv("DB_HOST"),
+    'port'		=> getenv("DB_PORT"),
+    'username'	=> getenv("DB_USER"),
+    'password'	=> getenv("DB_PASS"),
+    'database'	=> getenv("DB_NAME"),
     'charset'	=> 'utf8mb4',
     'dbprefix'	=> '',
     // Optional for SQLite
