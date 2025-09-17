@@ -1,3 +1,11 @@
+    // Live search endpoint (returns JSON)
+    public function search() {
+        $query = isset($_GET['q']) ? $_GET['q'] : '';
+        $results = $this->UserModel->search($query);
+        header('Content-Type: application/json');
+        echo json_encode($results);
+        exit;
+    }
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
@@ -15,7 +23,11 @@ class UserController extends Controller {
     }
 
     public function show(){
-        $data['users'] = $this->UserModel->all();
+        $per_page = 10;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $pagination = $this->UserModel->paginate($per_page, $page);
+        $data['users'] = $pagination['data'];
+        $data['pagination'] = $pagination;
         $this->call->view('show', $data);
     }
 

@@ -42,6 +42,16 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+    <!-- Pagination Controls -->
+    <?php if (isset($pagination) && $pagination['last_page'] > 1): ?>
+      <div class="flex justify-center items-center gap-2 py-4 bg-gray-900">
+        <?php for ($i = 1; $i <= $pagination['last_page']; $i++): ?>
+          <a href="?page=<?=$i;?>" class="px-3 py-1 rounded <?php if ($i == $pagination['current_page']) echo 'bg-green-600 text-white'; else echo 'bg-gray-700 hover:bg-green-700'; ?>">
+            <?=$i; ?>
+          </a>
+        <?php endfor; ?>
+      </div>
+    <?php endif; ?>
   </div>
 
   <a href="<?=site_url('users/create');?>" 
