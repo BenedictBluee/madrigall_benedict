@@ -33,7 +33,7 @@
                class="px-3 py-1 bg-blue-600 hover:bg-blue-500 rounded-md text-white">
               ✏ Update
             </a>
-            <a href="<?=site_url('users/delete/'.$user['id']);?>" 
+            <a href="<?=site_url('users/soft-delete/'.$user['id']);?>" 
                class="px-3 py-1 bg-red-600 hover:bg-red-500 rounded-md text-white">
               🗑 Delete
             </a>
