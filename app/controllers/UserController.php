@@ -15,12 +15,7 @@ class UserController extends Controller {
     }
 
     public function show(){
-        $per_page = 10;
-        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
-        $search = isset($_GET['q']) ? trim($_GET['q']) : '';
-        $pagination = $this->UserModel->paginate_and_search($per_page, $page, $search);
-        $data['users'] = $pagination['data'];
-        $data['pagination'] = $pagination;
+        $data['users'] = $this->UserModel->all();
         $this->call->view('show', $data);
     }
 
