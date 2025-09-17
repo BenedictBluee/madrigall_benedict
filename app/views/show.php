@@ -74,8 +74,8 @@
                     <?php foreach (html_escape($users) as $user):?>
                         <tr>
                             <td><?=$user['id'];?></td>
-                            <td><?=$user['last_name'];?></td>
-                            <td><?=$user['first_name'];?></td>
+                            <td><?=$user['lname'];?></td>
+                            <td><?=$user['fname'];?></td>
                             <td><?=$user['email'];?></td>
                             <td class="action-links">
                                 <a href="<?=site_url('users/update/'.$user['id']);?>">Update</a> |
@@ -158,6 +158,6 @@
     // Initial render
     renderTable(1);
     </script>
-    
+
 </body>
 </html>
