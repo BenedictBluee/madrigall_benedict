@@ -51,5 +51,113 @@
     ➕ Create Record
   </a>
 
+
+     <div class="container">
+        <h1>User Data Grid // Access Terminal</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchBox" placeholder="Search records...">
+        </div>
+        
+        <div class="table-responsive">
+            <table id="studentsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach (html_escape($users) as $user):?>
+                        <tr>
+                            <td><?=$user['id'];?></td>
+                            <td><?=$user['last_name'];?></td>
+                            <td><?=$user['first_name'];?></td>
+                            <td><?=$user['email'];?></td>
+                            <td class="action-links">
+                                <a href="<?=site_url('users/update/'.$user['id']);?>">Update</a> |
+                                <a href="<?=site_url('users/delete/'.$user['id']);?>" class="delete-link" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="pagination" class="pagination-container"></div>
+        
+        <div style="text-align: center;">
+            <a href="<?=site_url('users/create');?>" class="create-record-btn">Create New Record</a>
+        </div>
+    </div>
+  
+    <script>
+    // Live search and pagination (client-side)
+    const searchBox = document.getElementById('searchBox');
+    const table = document.getElementById('studentsTable');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const pagination = document.getElementById('pagination');
+    const pageSize = 5;
+    let currentPage = 1;
+
+    function filterRows() {
+        const query = searchBox.value.trim().toLowerCase();
+        return rows.filter(row => {
+            return Array.from(row.children).some(cell =>
+                cell.textContent.toLowerCase().includes(query)
+            );
+        });
+    }
+
+    function renderTable(page = 1) {
+        const filtered = filterRows();
+        const total = filtered.length;
+        const totalPages = Math.ceil(total / pageSize) || 1;
+        if (page > totalPages) page = totalPages;
+        currentPage = page;
+        tbody.innerHTML = '';
+        const start = (page - 1) * pageSize;
+        const end = start + pageSize;
+        filtered.slice(start, end).forEach(row => tbody.appendChild(row));
+        renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+        let html = '';
+        const maxButtons = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+        let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+        if (endPage - startPage + 1 < maxButtons) {
+            startPage = Math.max(1, endPage - maxButtons + 1);
+        }
+
+        // Always render pagination
+        html += `<button onclick="gotoPage(1)" ${currentPage===1?'disabled':''}>&laquo;</button>`;
+        html += `<button onclick="gotoPage(${currentPage-1})" ${currentPage===1?'disabled':''}>&lt;</button>`;
+        
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<button onclick="gotoPage(${i})" class="${i===currentPage?'active':''}">${i}</button>`;
+        }
+
+        html += `<button onclick="gotoPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>&gt;</button>`;
+        html += `<button onclick="gotoPage(${totalPages})" ${currentPage===totalPages?'disabled':''}>&raquo;</button>`;
+        
+        pagination.innerHTML = html;
+    }
+
+    function gotoPage(page) {
+        renderTable(page);
+    }
+
+    searchBox.addEventListener('input', () => renderTable(1));
+    // Initial render
+    renderTable(1);
+    </script>
+    
 </body>
 </html>
