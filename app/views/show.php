@@ -7,8 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-green-400 font-mono min-h-screen flex flex-col items-center py-10">
-  
+
   <h1 class="text-3xl font-bold tracking-widest mb-6">📜 USER LIST</h1>
+
+  <!-- Search Form (server-side only) -->
+  <form method="get" action="" class="mb-4 w-11/12 md:w-3/4 flex justify-end">
+    <input type="text" name="q" value="<?= isset($pagination['search']) ? htmlspecialchars($pagination['search']) : '' ?>" placeholder="Search by name or email..." class="w-full md:w-1/2 px-4 py-2 rounded-lg border border-green-500 bg-gray-900 text-green-400 focus:outline-none focus:ring-2 focus:ring-green-600" />
+    <button type="submit" class="ml-2 px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg">Search</button>
+  </form>
 
   <div class="w-11/12 md:w-3/4 bg-gray-800 rounded-2xl shadow-lg border border-green-500 overflow-hidden">
     <table class="w-full border-collapse">
@@ -42,6 +48,22 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+
+    <!-- Pagination Controls (server-side only) -->
+    <?php if (isset($pagination) && $pagination['last_page'] > 1): ?>
+      <div class="flex justify-center items-center gap-2 py-4 bg-gray-900">
+        <?php for ($i = 1; $i <= $pagination['last_page']; $i++): ?>
+          <?php
+            $params = $_GET;
+            $params['page'] = $i;
+            $query = http_build_query($params);
+          ?>
+          <a href="?<?=$query;?>" class="px-3 py-1 rounded <?php if ($i == $pagination['current_page']) echo 'bg-green-600 text-white'; else echo 'bg-gray-700 hover:bg-green-700'; ?>">
+            <?=$i; ?>
+          </a>
+        <?php endfor; ?>
+      </div>
+    <?php endif; ?>
   </div>
 
   <a href="<?=site_url('users/create');?>" 
