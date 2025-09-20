@@ -23,8 +23,8 @@ class UserModel extends Model {
 
             // Build LIKE conditions for search
             $query->like('id', '%'.$q.'%')
-                  ->or_like('first_name', '%'.$q.'%')
-                  ->or_like('last_name', '%'.$q.'%')
+                  ->or_like('fname', '%'.$q.'%')
+                  ->or_like('lname', '%'.$q.'%')
                   ->or_like('email', '%'.$q.'%');
 
             // Clone before pagination for counting
