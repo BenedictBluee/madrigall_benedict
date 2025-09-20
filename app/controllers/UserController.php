@@ -15,7 +15,36 @@ class UserController extends Controller {
     }
 
     public function show(){
-        $data['users'] = $this->UserModel->all();
+        if(isset($_GET['page']) && ! empty($_GET['page'])) {
+            $page = $this->io->get('page');
+        }
+
+        // Get search query (optional)
+        $q = '';
+        if(isset($_GET['q']) && ! empty($_GET['q'])) {
+            $q = trim($this->io->get('q'));
+        }
+
+        $records_per_page = 15; // number of users per page
+
+        // Call model's pagination method
+        $all = $this->UserModel->page($q, $records_per_page, $page);
+        $data['users'] = $all['records'];
+        $total_rows = $all['total_rows'];
+
+        // Configure pagination
+        $this->pagination->set_options([
+            'first_link'     => '⏮ First',
+            'last_link'      => 'Last ⏭',
+            'next_link'      => 'Next →',
+            'prev_link'      => '← Prev',
+            'page_delimiter' => '&page='
+        ]);
+        $this->pagination->set_theme('tailwind'); // themes: bootstrap, tailwind, custom
+        $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('users/show').'?q='.$q);
+
+        // Send data to view
+        $data['page'] = $this->pagination->paginate();
         $this->call->view('show', $data);
     }
 
