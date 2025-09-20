@@ -45,11 +45,16 @@
     </table>
 
   </div>
+  
 
   <a href="<?=site_url('users/create');?>" 
      class="mt-6 px-6 py-2 bg-green-600 hover:bg-green-500 rounded-lg shadow-md shadow-green-500/50 transition">
     ➕ Create Record
   </a>
+
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-wrap justify-end items-center gap-3 bg-white/90 dark:bg-gray-800/80 p-2 rounded-lg shadow-md z-50">
+      <?php if (isset($page)) echo $page; ?>
+  </div>
 
 </body>
 </html>
