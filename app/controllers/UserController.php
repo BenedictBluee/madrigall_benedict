@@ -15,6 +15,8 @@ class UserController extends Controller {
     }
 
     public function show(){
+        // Get current page (default 1)
+        $page = 1;
         if(isset($_GET['page']) && ! empty($_GET['page'])) {
             $page = $this->io->get('page');
         }
