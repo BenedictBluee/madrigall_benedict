@@ -37,14 +37,8 @@
 
         /* Animations */
         @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .form-container {
@@ -115,7 +109,6 @@
             color: var(--color-text-primary);
             font-family: var(--font-mono);
             font-size: 1rem;
-            box-sizing: border-box;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -137,7 +130,7 @@
             font-size: clamp(1rem, 3vw, 1.2rem);
             font-family: var(--font-display);
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             text-shadow: 0 0 5px var(--color-accent-neon);
             box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
             letter-spacing: 1px;
@@ -160,7 +153,6 @@
             text-decoration: none;
             color: var(--color-text-primary);
             font-size: 0.9rem;
-            font-weight: 400;
             transition: color 0.2s ease;
             border: 1px solid transparent;
             padding: 0.5rem 1rem;
@@ -180,7 +172,7 @@
 <body>
     <div class="form-container">
         <h1>// CREATE USER_REC</h1>
-        <form action="<?=site_url('users/create');?>" method="post">
+        <form action="<?= site_url('users/store'); ?>" method="post">
             <div class="form-group">
                 <label for="lname">Last Name</label>
                 <input type="text" id="lname" name="lname" required>
@@ -198,7 +190,7 @@
 
             <button type="submit">Submit Record</button>
         </form>
-        <a href="<?=site_url('users/show');?>" class="back-link">// Back to Dashboard</a>
+        <a href="<?= site_url('users/show'); ?>" class="back-link">// Back to Dashboard</a>
     </div>
 </body>
 </html>
