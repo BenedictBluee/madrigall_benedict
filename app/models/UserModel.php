@@ -28,8 +28,8 @@ class UserModel extends Model {
 
             // Add search for id, first name, last name, or email
             $query->like('id', '%' . $q . '%')
-                ->or_like('first_name', '%' . $q . '%')
-                ->or_like('last_name', '%' . $q . '%')
+                ->or_like('fname', '%' . $q . '%')
+                ->or_like('lname', '%' . $q . '%')
                 ->or_like('email', '%' . $q . '%');
 
             // Copy query to count total matching rows
