@@ -1,11 +1,6 @@
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
-/**
- * Controller: UserController
- * 
- * Automatically generated via CLI.
- */
 class UserController extends Controller {
     public function __construct()
     {
@@ -31,7 +26,7 @@ class UserController extends Controller {
 
         // Call model's pagination method
         $all = $this->UserModel->page($q, $records_per_page, $page);
-        $data['students'] = $all['records'];
+        $data['users'] = $all['records'];
         $total_rows = $all['total_rows'];
 
         // Configure pagination
@@ -42,7 +37,7 @@ class UserController extends Controller {
             'prev_link'      => '← Prev',
             'page_delimiter' => '&page='
         ]);
-        $this->pagination->set_theme('ben-custom'); // themes: bootstrap, tailwind, custom
+        $this->pagination->set_theme('tailwind'); // themes: bootstrap, tailwind, custom
         $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('users/show').'?q='.$q);
 
         // Send data to view
@@ -68,7 +63,6 @@ class UserController extends Controller {
         } else {
             $this->call->view('create');
         }
-        
     }
 
     public function update($id) {
@@ -94,22 +88,6 @@ class UserController extends Controller {
 
     public function delete($id){
         if($this->UserModel->delete($id)){
-            redirect('users/show');
-        } else {
-            echo 'Something went wrong';
-        }
-    }
-
-    public function soft_delete($id){
-        if($this->UserModel->soft_delete($id)){
-            redirect('users/show');
-        } else {
-            echo 'Something went wrong';
-        }
-    }
-
-    public function restore($id){
-        if($this->UserModel->restore($id)){
             redirect('users/show');
         } else {
             echo 'Something went wrong';
