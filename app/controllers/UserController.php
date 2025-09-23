@@ -42,7 +42,7 @@ class UserController extends Controller {
             'prev_link'      => '← Prev',
             'page_delimiter' => '&page='
         ]);
-        $this->pagination->set_theme('tailwind'); // themes: bootstrap, tailwind, custom
+        $this->pagination->set_theme('ben-custom'); // themes: bootstrap, tailwind, custom
         $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('users/show').'?q='.$q);
 
         // Send data to view
