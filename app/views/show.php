@@ -52,9 +52,9 @@
     ➕ Create Record
   </a>
 
-  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-wrap justify-end items-center gap-3 bg-white/90 dark:bg-gray-800/80 p-2 rounded-lg shadow-md z-50">
-      <?php if (isset($page)) echo $page; ?>
-  </div>
+    <div class="pagination-container">
+          <?php if (isset($page)) echo $page; ?>
+    </div>
 
 </body>
 </html>
