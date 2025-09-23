@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | System Console</title>
+    <title>Home | Valorant Console</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-primary: #0a0a0a;
-            --color-bg-secondary: rgba(18, 18, 18, 0.75);
-            --color-text-primary: #f0f0f0;
-            --color-accent-neon: #00ff80;
-            --color-border: #333;
+            --color-bg-primary: #0f1923;
+            --color-bg-secondary: rgba(20, 28, 38, 0.85);
+            --color-text-primary: #ece8e1;
+            --color-accent: #ff4655;
+            --color-border: #2a2e35;
             --font-display: 'Orbitron', sans-serif;
             --font-mono: 'Roboto Mono', monospace;
-            --shadow-neon: 0 0 12px rgba(0, 255, 128, 0.6);
+            --shadow-neon: 0 0 14px rgba(255, 70, 85, 0.6);
         }
 
         body {
@@ -29,8 +29,8 @@
             min-height: 100vh;
 
             background-image:
-                linear-gradient(to right, rgba(0, 255, 128, 0.08) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 255, 128, 0.08) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 70, 85, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 70, 85, 0.08) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
@@ -43,7 +43,6 @@
             width: 90%;
             max-width: 600px;
             background: var(--color-bg-secondary);
-            backdrop-filter: blur(8px);
             border: 1px solid var(--color-border);
             box-shadow: var(--shadow-neon);
             padding: 3rem 2rem;
@@ -57,7 +56,7 @@
             font-size: clamp(1.5rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 3rem;
-            color: var(--color-accent-neon);
+            color: var(--color-accent);
             text-shadow: var(--shadow-neon);
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -80,16 +79,16 @@
             max-width: 320px;
             padding: 1rem 0;
             background-color: transparent;
-            color: var(--color-accent-neon);
+            color: var(--color-accent);
             text-decoration: none;
-            border: 2px solid var(--color-accent-neon);
-            border-radius: 10px;
+            border: 2px solid var(--color-accent);
+            border-radius: 8px;
             font-weight: 700;
             font-size: clamp(1rem, 3vw, 1.2rem);
             font-family: var(--font-display);
             transition: all 0.3s ease;
-            text-shadow: 0 0 5px var(--color-accent-neon);
-            box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
+            text-shadow: 0 0 6px var(--color-accent);
+            box-shadow: 0 0 10px rgba(255, 70, 85, 0.4);
             cursor: pointer;
             opacity: 0;
             animation: fadeSlideUp 0.8s ease forwards;
@@ -99,9 +98,9 @@
         .main-btn:nth-child(2) { animation-delay: 0.6s; }
 
         .main-btn:hover {
-            background-color: var(--color-accent-neon);
+            background-color: var(--color-accent);
             color: var(--color-bg-primary);
-            box-shadow: 0 0 25px var(--color-accent-neon);
+            box-shadow: 0 0 25px var(--color-accent);
         }
 
         @media (max-width: 480px) {

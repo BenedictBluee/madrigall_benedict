@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User | System Console</title>
+    <title>Create User | Valorant Console</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-primary: #0a0a0a;
-            --color-bg-secondary: rgba(18, 18, 18, 0.7);
-            --color-text-primary: #f0f0f0;
-            --color-accent-neon: #00ff80;
-            --color-danger-neon: #ff3366;
-            --color-border: #333;
-            --color-input-bg: #2d2d2d;
+            --color-bg-primary: #0f1923;
+            --color-bg-secondary: #1c252f;
+            --color-text-primary: #ece8e1;
+            --color-accent: #ff4655;
+            --color-border: #2a2e35;
+            --color-input-bg: #101823;
             --font-display: 'Orbitron', sans-serif;
             --font-mono: 'Roboto Mono', monospace;
-            --shadow-neon: 0 0 10px rgba(0, 255, 128, 0.5);
+            --shadow-neon: 0 0 12px rgba(255, 70, 85, 0.5);
         }
 
         body {
@@ -30,12 +29,11 @@
             align-items: center;
             min-height: 100vh;
             background-image:
-                linear-gradient(to right, rgba(0, 255, 128, 0.07) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 255, 128, 0.07) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 70, 85, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 70, 85, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
-        /* Animations */
         @keyframes fadeSlideUp {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -45,7 +43,6 @@
             width: 90%;
             max-width: 500px;
             background: var(--color-bg-secondary);
-            backdrop-filter: blur(8px);
             border: 1px solid var(--color-border);
             box-shadow: var(--shadow-neon);
             padding: 2.5rem;
@@ -62,7 +59,7 @@
             font-size: clamp(1.5rem, 5vw, 2.2rem);
             font-weight: 700;
             margin-bottom: 2.5rem;
-            color: var(--color-accent-neon);
+            color: var(--color-accent);
             text-shadow: var(--shadow-neon);
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -93,7 +90,7 @@
         label {
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--color-accent-neon);
+            color: var(--color-accent);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -115,24 +112,24 @@
         input[type="text"]:focus,
         input[type="email"]:focus {
             outline: none;
-            border-color: var(--color-accent-neon);
-            box-shadow: 0 0 5px var(--color-accent-neon);
+            border-color: var(--color-accent);
+            box-shadow: 0 0 6px var(--color-accent);
         }
 
         button[type="submit"] {
             width: 100%;
             padding: 1rem 0;
             background-color: transparent;
-            color: var(--color-accent-neon);
-            border: 2px solid var(--color-accent-neon);
+            color: var(--color-accent);
+            border: 2px solid var(--color-accent);
             border-radius: 8px;
             font-weight: 700;
             font-size: clamp(1rem, 3vw, 1.2rem);
             font-family: var(--font-display);
             cursor: pointer;
             transition: all 0.3s ease;
-            text-shadow: 0 0 5px var(--color-accent-neon);
-            box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
+            text-shadow: 0 0 5px var(--color-accent);
+            box-shadow: 0 0 10px rgba(255, 70, 85, 0.4);
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-top: 1rem;
@@ -142,9 +139,9 @@
         }
 
         button[type="submit"]:hover {
-            background-color: var(--color-accent-neon);
+            background-color: var(--color-accent);
             color: var(--color-bg-primary);
-            box-shadow: 0 0 20px var(--color-accent-neon);
+            box-shadow: 0 0 20px var(--color-accent);
         }
 
         .back-link {
@@ -163,9 +160,9 @@
         }
 
         .back-link:hover {
-            color: var(--color-accent-neon);
-            border-color: var(--color-accent-neon);
-            box-shadow: 0 0 5px var(--color-accent-neon);
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+            box-shadow: 0 0 5px var(--color-accent);
         }
     </style>
 </head>
