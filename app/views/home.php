@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Valorant Console</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Home | TF2 Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-primary: #0f1923;
-            --color-bg-secondary: rgba(20, 28, 38, 0.85);
-            --color-text-primary: #ece8e1;
-            --color-accent: #ff4655;
-            --color-border: #2a2e35;
-            --font-display: 'Orbitron', sans-serif;
-            --font-mono: 'Roboto Mono', monospace;
-            --shadow-neon: 0 0 14px rgba(255, 70, 85, 0.6);
+            --color-bg-primary: #2b2b2b;
+            --color-bg-secondary: rgba(50, 50, 50, 0.9);
+            --color-text-primary: #f0e6d2;
+            --color-accent-red: #7d1a1a;
+            --color-accent-blu: #1a3b7d;
+            --color-highlight: #f2a900;
+            --color-border: #4a4a4a;
+            --font-display: 'Russo One', sans-serif;
+            --font-body: 'Roboto Slab', serif;
         }
 
         body {
-            background-color: var(--color-bg-primary);
+            background: linear-gradient(135deg, var(--color-accent-red), var(--color-accent-blu));
             color: var(--color-text-primary);
-            font-family: var(--font-mono);
+            font-family: var(--font-body);
             margin: 0;
             padding: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-
-            background-image:
-                linear-gradient(to right, rgba(255, 70, 85, 0.08) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 70, 85, 0.08) 1px, transparent 1px);
-            background-size: 40px 40px;
         }
 
         @keyframes fadeSlideUp {
@@ -43,8 +39,8 @@
             width: 90%;
             max-width: 600px;
             background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border);
-            box-shadow: var(--shadow-neon);
+            border: 2px solid var(--color-highlight);
+            box-shadow: 0 0 18px rgba(0,0,0,0.6);
             padding: 3rem 2rem;
             border-radius: 14px;
             text-align: center;
@@ -56,10 +52,10 @@
             font-size: clamp(1.5rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 3rem;
-            color: var(--color-accent);
-            text-shadow: var(--shadow-neon);
+            color: var(--color-highlight);
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 0px #000;
             opacity: 0;
             animation: fadeSlideUp 1s ease forwards;
             animation-delay: 0.2s;
@@ -78,17 +74,15 @@
             width: 100%;
             max-width: 320px;
             padding: 1rem 0;
-            background-color: transparent;
-            color: var(--color-accent);
+            background-color: var(--color-highlight);
+            color: #000;
             text-decoration: none;
-            border: 2px solid var(--color-accent);
+            border: 2px solid #000;
             border-radius: 8px;
             font-weight: 700;
             font-size: clamp(1rem, 3vw, 1.2rem);
             font-family: var(--font-display);
             transition: all 0.3s ease;
-            text-shadow: 0 0 6px var(--color-accent);
-            box-shadow: 0 0 10px rgba(255, 70, 85, 0.4);
             cursor: pointer;
             opacity: 0;
             animation: fadeSlideUp 0.8s ease forwards;
@@ -98,9 +92,9 @@
         .main-btn:nth-child(2) { animation-delay: 0.6s; }
 
         .main-btn:hover {
-            background-color: var(--color-accent);
-            color: var(--color-bg-primary);
-            box-shadow: 0 0 25px var(--color-accent);
+            background-color: #000;
+            color: var(--color-highlight);
+            box-shadow: 0 0 15px var(--color-highlight);
         }
 
         @media (max-width: 480px) {
@@ -113,10 +107,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>// SYSTEM CONSOLE</h1>
+        <h1>// TF2 SYSTEM CONSOLE</h1>
         <div class="btn-group">
-            <a href="<?=site_url('users/show');?>" class="main-btn">> VIEW STUDENTS</a>
-            <a href="<?=site_url('users/create');?>" class="main-btn">> ADD STUDENT</a>
+            <a href="<?=site_url('users/show');?>" class="main-btn">> DEPLOY ROSTER</a>
+            <a href="<?=site_url('users/create');?>" class="main-btn">> ENLIST NEW RECRUIT</a>
         </div>
     </div>
 </body>

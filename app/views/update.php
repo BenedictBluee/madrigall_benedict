@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Agent | Valorant Console</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <title>Update Mercenary | TF2 Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --valorant-red: #ff4655;
-            --valorant-dark: #0f1923;
-            --valorant-gray: #1c252e;
-            --valorant-light: #ece8e1;
-            --valorant-blue: #0f8cff;
+            --tf2-red: #b8383b;
+            --tf2-dark: #2e1e1f;
+            --tf2-gray: #3f3a36;
+            --tf2-light: #f8f1e1;
+            --tf2-orange: #d0843b;
         }
 
         body {
-            background: linear-gradient(135deg, var(--valorant-dark), #000);
-            color: var(--valorant-light);
-            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--tf2-dark), #1a1010);
+            color: var(--tf2-light);
+            font-family: 'Roboto Slab', serif;
             margin: 0;
             padding: 2rem 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+
+            background-image:
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 40px);
         }
 
         @keyframes fadeSlideUp {
@@ -33,27 +36,27 @@
 
         .form-container {
             width: 90%;
-            max-width: 520px;
-            background: var(--valorant-gray);
-            border: 2px solid var(--valorant-red);
-            box-shadow: 0 0 15px rgba(255, 70, 85, 0.6);
+            max-width: 540px;
+            background: var(--tf2-gray);
+            border: 3px solid var(--tf2-red);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
             padding: 2.5rem;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border-radius: 6px;
             text-align: center;
             animation: fadeSlideUp 0.8s ease forwards;
+            position: relative;
         }
 
         h1 {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
-            font-weight: 700;
+            font-family: 'Russo One', sans-serif;
             margin-bottom: 2rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--valorant-red);
-            text-shadow: 0 0 12px rgba(255, 70, 85, 0.8);
+            letter-spacing: 2px;
+            color: var(--tf2-orange);
+            text-shadow: 2px 2px 0 #000;
+            border-bottom: 3px solid var(--tf2-red);
+            padding-bottom: 0.5rem;
         }
 
         form {
@@ -70,9 +73,9 @@
         }
 
         label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: var(--valorant-light);
+            color: var(--tf2-light);
             margin-bottom: 0.4rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -82,10 +85,10 @@
         input[type="email"] {
             width: 100%;
             padding: 0.9rem 1rem;
-            background-color: #0d141b;
-            border: 2px solid #2c3947;
-            border-radius: 8px;
-            color: var(--valorant-light);
+            background-color: #241a1a;
+            border: 2px solid #5a4d4c;
+            border-radius: 4px;
+            color: var(--tf2-light);
             font-size: 1rem;
             transition: border 0.2s ease, box-shadow 0.2s ease;
         }
@@ -93,58 +96,58 @@
         input[type="text"]:focus,
         input[type="email"]:focus {
             outline: none;
-            border-color: var(--valorant-red);
-            box-shadow: 0 0 6px var(--valorant-red);
+            border-color: var(--tf2-orange);
+            box-shadow: 0 0 6px var(--tf2-orange);
         }
 
         button[type="submit"] {
             width: 100%;
             padding: 1rem 0;
-            background-color: var(--valorant-red);
+            background-color: var(--tf2-red);
             color: #fff;
             border: none;
-            border-radius: 10px;
+            border-radius: 4px;
             font-weight: 700;
             font-size: 1.1rem;
             cursor: pointer;
             letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 0 0 12px rgba(255, 70, 85, 0.7);
+            box-shadow: 3px 3px 0 #000;
             transition: all 0.3s ease;
-            margin-top: 0.5rem;
+            font-family: 'Russo One', sans-serif;
         }
 
         button[type="submit"]:hover {
-            background-color: #ff2e45;
-            box-shadow: 0 0 20px rgba(255, 70, 85, 1);
-            transform: scale(1.03);
+            background-color: #922d2e;
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0 #000;
         }
 
         .back-link {
             display: inline-block;
             margin-top: 2rem;
             text-decoration: none;
-            color: var(--valorant-light);
-            font-size: 0.95rem;
-            border: 2px solid transparent;
+            color: var(--tf2-light);
+            font-size: 0.9rem;
             padding: 0.6rem 1.2rem;
-            border-radius: 8px;
+            border: 2px solid var(--tf2-red);
+            border-radius: 4px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 1px;
+            background: #241a1a;
         }
 
         .back-link:hover {
-            border-color: var(--valorant-red);
-            color: var(--valorant-red);
-            box-shadow: 0 0 6px var(--valorant-red);
+            background-color: var(--tf2-red);
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h1>Update Agent</h1>
+        <h1>Update Mercenary</h1>
         <form action="<?= site_url('users/update/'.$user['id']); ?>" method="post">
             <div class="form-group">
                 <label for="lname">Codename</label>
@@ -161,7 +164,7 @@
                 <input type="email" id="email" name="email" value="<?= html_escape($user['email']); ?>" required>
             </div>
 
-            <button type="submit">Update Agent</button>
+            <button type="submit">Update Merc</button>
         </form>
         <a href="<?= site_url('users/show'); ?>" class="back-link">⟵ Back to Roster</a>
     </div>
