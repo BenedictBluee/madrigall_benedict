@@ -13,7 +13,7 @@
 
     /* Title Gradient */
     .tf2-title {
-      background: linear-gradient(90deg, #b22222, #e9b96e, #2e4a9d);
+      background: linear-gradient(90deg, #ab8f3dff, #ab7622ff, #ab994cff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
