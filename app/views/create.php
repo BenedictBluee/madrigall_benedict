@@ -161,7 +161,7 @@
 <body>
   <div class="form-container">
     <h1>// Recruit Mercenary</h1>
-    <form action="<?= site_url('users/store'); ?>" method="post">
+    <form action="<?= site_url('users/create'); ?>" method="post">
       <div class="form-group">
         <label for="lname">Codename</label>
         <input type="text" id="lname" name="lname" required>
