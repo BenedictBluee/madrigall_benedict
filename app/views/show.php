@@ -53,11 +53,11 @@
 <body class="tf2-bg min-h-screen flex flex-col items-center p-6 text-yellow-100">
 
   <!-- Main Container -->
-  <div class="w-full max-w-6xl border-8 border-yellow-600 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.9)] p-8 bg-black/70">
+  <div class="w-full max-w-6xl border-8 border-yellow-600 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.9)] p-8 bg-black/80">
 
     <!-- Header -->
     <h1 class="text-6xl text-center mb-10 tf2-title drop-shadow-[0_5px_10px_rgba(0,0,0,0.9)] tracking-widest">
-      Mercenary Roster
+      🪖 Mercenary Roster
     </h1>
 
     <!-- Search -->
