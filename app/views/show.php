@@ -6,63 +6,68 @@
   <title>TF2 Roster</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body { font-family: 'Roboto Slab', serif; }
     h1, th { font-family: 'Russo One', sans-serif; }
 
+    /* Title Gradient */
     .tf2-title {
-      background: linear-gradient(90deg, #8b2d22, #c58b4b, #1d3f91);
+      background: linear-gradient(90deg, #b22222, #e9b96e, #2e4a9d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .tf2-container {
-      /* Use the provided image as repeating tile background */
-      background: url('https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/class_repeat_bg.jpg') repeat center center,
-                  #1a1a1a;
-      /* blending or overlay if needed */
+    /* Background texture */
+    .tf2-bg {
+      background: url('https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/bg_repeat.jpg') repeat center center,
+                  #111;
       background-blend-mode: multiply;
     }
 
+    /* Buttons */
     .tf2-btn {
-      border-width: 3px;
-      border-color: #000;
-      text-transform: uppercase;
+      border: 3px solid #000;
       font-family: 'Russo One', sans-serif;
+      text-transform: uppercase;
+      transition: all 0.2s ease-in-out;
     }
-    .tf2-btn-red {
-      background-color: #a22c29;
-    }
-    .tf2-btn-blue {
-      background-color: #2c3e91;
-    }
-    .tf2-btn-yellow {
-      background-color: #d9a441;
-    }
+    .tf2-btn-red { background-color: #a72c25; }
+    .tf2-btn-blue { background-color: #1d3f91; }
+    .tf2-btn-yellow { background-color: #c58b4b; }
     .tf2-btn:hover {
-      filter: brightness(1.1);
-      transform: scale(1.05);
+      transform: translateY(-3px) scale(1.05);
+      filter: brightness(1.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+
+    /* Table styling */
+    .tf2-table th {
+      background: linear-gradient(90deg, #8b2d22, #444, #1d3f91);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
   </style>
 </head>
-<body class="bg-gray-900 min-h-screen flex flex-col items-center p-8 text-yellow-100">
+<body class="tf2-bg min-h-screen flex flex-col items-center p-6 text-yellow-100">
 
   <!-- Main Container -->
-  <div class="tf2-container w-full max-w-6xl border-8 border-yellow-600 rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.9)] p-8">
+  <div class="w-full max-w-6xl border-8 border-yellow-600 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.9)] p-8 bg-black/70">
 
     <!-- Header -->
-    <h1 class="text-6xl text-center mb-12 tf2-title drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] tracking-widest">
-      ⚙ Team Fortress 2 Roster ⚙
+    <h1 class="text-6xl text-center mb-10 tf2-title drop-shadow-[0_5px_10px_rgba(0,0,0,0.9)] tracking-widest">
+      Mercenary Roster
     </h1>
 
     <!-- Search -->
-    <div class="flex justify-center mb-12">
+    <div class="flex justify-center mb-10">
       <form action="<?= site_url('users/show'); ?>" method="get" class="flex w-full max-w-xl gap-3">
         <?php $q = isset($_GET['q']) ? $_GET['q'] : ''; ?>
-        <input type="text" name="q" placeholder="🔍 Search Mercenaries..." 
+        <input type="text" name="q" placeholder="🔍 Search the Barracks..." 
                value="<?= html_escape($q); ?>" 
-               class="flex-1 border-4 border-yellow-600 bg-gray-800 text-yellow-100 px-4 py-3 rounded-lg focus:ring-4 focus:ring-yellow-500 placeholder-gray-400">
-        <button type="submit" class="tf2-btn tf2-btn-yellow px-8 py-3 rounded-lg font-bold shadow-lg transition">
+               class="flex-1 border-4 border-yellow-600 bg-gray-900 text-yellow-100 px-4 py-3 rounded-lg focus:ring-4 focus:ring-yellow-500 placeholder-gray-500">
+        <button type="submit" class="tf2-btn tf2-btn-yellow px-8 py-3 rounded-lg font-bold shadow-md">
           Search
         </button>
       </form>
@@ -70,41 +75,41 @@
 
     <!-- Table -->
     <div class="overflow-x-auto">
-      <table class="w-full border-collapse text-yellow-200">
+      <table class="w-full border-collapse text-yellow-200 tf2-table">
         <thead>
-          <tr class="bg-gradient-to-r from-red-800 via-gray-800 to-blue-800 text-white">
+          <tr>
             <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">ID</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">🟥 Codename</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">👤 Real Name</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">📡 Contact</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-center">⚔ Orders</th>
+            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">Codename</th>
+            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">Real Name</th>
+            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">Comms</th>
+            <th class="border-b-4 border-yellow-600 px-4 py-4 text-center">Orders</th>
           </tr>
         </thead>
-        <tbody class="bg-gray-900/90">
+        <tbody class="bg-gray-900/80">
           <?php if (!empty($users)): ?>
             <?php foreach ($users as $user): ?>
-              <tr class="hover:bg-gray-800/80 transition">
+              <tr class="hover:bg-gray-800 transition">
                 <td class="border-b border-gray-700 px-4 py-3"><?= $user['id']; ?></td>
-                <td class="border-b border-gray-700 px-4 py-3 font-bold text-red-400"><?= $user['lname']; ?></td>
+                <td class="border-b border-gray-700 px-4 py-3 font-bold text-red-400 uppercase"><?= $user['lname']; ?></td>
                 <td class="border-b border-gray-700 px-4 py-3"><?= $user['fname']; ?></td>
                 <td class="border-b border-gray-700 px-4 py-3"><?= $user['email']; ?></td>
                 <td class="border-b border-gray-700 px-4 py-3 text-center space-x-3">
                   <a href="<?= site_url('users/update/'.$user['id']); ?>" 
-                     class="tf2-btn tf2-btn-blue text-white px-4 py-2 rounded-lg shadow-md inline-block">
-                      ✏ Edit
+                     class="tf2-btn tf2-btn-blue text-white px-4 py-2 rounded-md">
+                      ✏ Modify
                   </a>
                   <a href="<?= site_url('users/delete/'.$user['id']); ?>" 
-                     onclick="return confirm('Discharge this mercenary from the roster?');"
-                     class="tf2-btn tf2-btn-red text-white px-4 py-2 rounded-lg shadow-md inline-block">
-                      ❌ Eliminate
+                     onclick="return confirm('Discharge this mercenary?');"
+                     class="tf2-btn tf2-btn-red text-white px-4 py-2 rounded-md">
+                      ❌ Remove
                   </a>
                 </td>
               </tr>
             <?php endforeach; ?>
           <?php else: ?>
             <tr>
-              <td colspan="5" class="text-center py-10 text-red-400 font-bold uppercase tracking-wide">
-                ⚠ No mercenaries enlisted ⚠
+              <td colspan="5" class="text-center py-12 text-red-400 font-bold uppercase tracking-wide">
+                ⚠ No mercenaries currently enlisted ⚠
               </td>
             </tr>
           <?php endif; ?>
