@@ -32,9 +32,9 @@
       text-transform: uppercase;
       transition: all 0.2s ease-in-out;
     }
-    .tf2-btn-red { background-color: #a72c25; }
-    .tf2-btn-blue { background-color: #1d3f91; }
-    .tf2-btn-yellow { background-color: #c58b4b; }
+    .tf2-btn-red { background-color: #a72c25; color: #fff; }
+    .tf2-btn-blue { background-color: #1d3f91; color: #fff; }
+    .tf2-btn-yellow { background-color: #c58b4b; color: #fff; }
     .tf2-btn:hover {
       transform: translateY(-3px) scale(1.05);
       filter: brightness(1.15);
@@ -47,6 +47,16 @@
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 2px;
+    }
+
+    /* Pagination override */
+    .pagination a,
+    .pagination strong,
+    .pagination span {
+      @apply tf2-btn tf2-btn-yellow px-4 py-2 rounded-md mx-1 inline-block;
+    }
+    .pagination strong {
+      @apply tf2-btn-red;
     }
   </style>
 </head>
@@ -90,17 +100,18 @@
             <?php foreach ($users as $user): ?>
               <tr class="hover:bg-gray-800 transition">
                 <td class="border-b border-gray-700 px-4 py-3"><?= $user['id']; ?></td>
-                <td class="border-b border-gray-700 px-4 py-3 font-bold text-red-400 uppercase"><?= $user['lname']; ?></td>
+                <!-- Changed red/blue codename to orange -->
+                <td class="border-b border-gray-700 px-4 py-3 font-bold text-orange-400 uppercase"><?= $user['lname']; ?></td>
                 <td class="border-b border-gray-700 px-4 py-3"><?= $user['fname']; ?></td>
                 <td class="border-b border-gray-700 px-4 py-3"><?= $user['email']; ?></td>
                 <td class="border-b border-gray-700 px-4 py-3 text-center space-x-3">
                   <a href="<?= site_url('users/update/'.$user['id']); ?>" 
-                     class="tf2-btn tf2-btn-blue text-white px-4 py-2 rounded-md">
+                     class="tf2-btn tf2-btn-blue px-4 py-2 rounded-md">
                       ✏ Modify
                   </a>
                   <a href="<?= site_url('users/delete/'.$user['id']); ?>" 
                      onclick="return confirm('Discharge this mercenary?');"
-                     class="tf2-btn tf2-btn-red text-white px-4 py-2 rounded-md">
+                     class="tf2-btn tf2-btn-red px-4 py-2 rounded-md">
                       ❌ Remove
                   </a>
                 </td>
@@ -118,7 +129,7 @@
     </div>
 
     <!-- Pagination -->
-    <div class="flex justify-center mt-10">
+    <div class="flex justify-center mt-10 pagination">
       <?php if (isset($page)) echo $page; ?>
     </div>
 
