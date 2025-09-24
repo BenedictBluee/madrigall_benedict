@@ -19,20 +19,19 @@
       margin: 0;
       font-family: 'Roboto Slab', serif;
       color: var(--tf2-light);
-      background: radial-gradient(circle at top, #2b1a1b, #0d0a0a);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       padding: 3rem 1rem;
-      background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.05) 0 2px,
-        transparent 2px 40px
-      );
+
+      /* Same TF2 background as roster */
+      background: url('https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/class_repeat_bg.jpg') repeat center center,
+                  #0d0a0a;
+      background-blend-mode: multiply;
     }
 
-    /* Header strip like TF2 */
+    /* Header strip */
     .tf2-header {
       position: fixed;
       top: 0;
@@ -66,7 +65,6 @@
       text-align: center;
       box-shadow: 10px 10px 0 #000;
       animation: fadeSlideUp 0.8s ease forwards;
-      position: relative;
     }
 
     h1 {

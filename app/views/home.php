@@ -166,7 +166,7 @@
   <!-- MAIN -->
   <main>
     <div class="container">
-      <h1>// TF2 System Console</h1>
+      <h1>Team Fortress 2</h1>
       <div class="btn-group">
         <a href="<?=site_url('users/show');?>" class="main-btn">> Deploy Roster</a>
         <a href="<?=site_url('users/create');?>" class="main-btn">> Enlist New Recruit</a>

@@ -22,7 +22,8 @@
       margin: 0;
       min-height: 100vh;
       font-family: var(--font-body);
-      background: radial-gradient(circle at top, #2d2825 0%, #1a1613 100%);
+      background: url("https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/class_repeat_bg.jpg") repeat center top;
+      background-attachment: fixed;
       color: var(--tf2-light);
       display: flex;
       justify-content: center;
