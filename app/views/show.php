@@ -11,14 +11,14 @@
     body { font-family: 'Roboto Slab', serif; }
     h1, th { font-family: 'Russo One', sans-serif; }
 
-    /* Title Gradient */
+    /* Gradient TF2 title */
     .tf2-title {
-      background: linear-gradient(90deg, #ab8f3dff, #ab7622ff, #ab994cff);
+      background: linear-gradient(90deg, #d7b46c, #e7a643, #f2c76b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Background texture */
+    /* Background */
     .tf2-bg {
       background: url('https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/bg_repeat.jpg') repeat center center,
                   #111;
@@ -37,33 +37,35 @@
     .tf2-btn-yellow { background-color: #c58b4b; color: #fff; }
     .tf2-btn:hover {
       transform: translateY(-3px) scale(1.05);
-      filter: brightness(1.15);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      filter: brightness(1.2);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.7);
     }
 
     /* Table styling */
     .tf2-table th {
-      background: linear-gradient(90deg, #8b2d22, #444, #1d3f91);
-      color: #fff;
+      background: #222;
+      color: #f2c76b;
       text-transform: uppercase;
       letter-spacing: 2px;
+      border-bottom: 4px solid #c58b4b;
+    }
+    .tf2-table td {
+      border-bottom: 1px solid #333;
     }
 
-    /* Pagination override */
+    /* Pagination styling */
     .pagination a,
     .pagination strong,
     .pagination span {
       @apply tf2-btn tf2-btn-yellow px-4 py-2 rounded-md mx-1 inline-block;
     }
-    .pagination strong {
-      @apply tf2-btn-red;
-    }
+    .pagination strong { @apply tf2-btn-red; }
   </style>
 </head>
 <body class="tf2-bg min-h-screen flex flex-col items-center p-6 text-yellow-100">
 
   <!-- Main Container -->
-  <div class="w-full max-w-6xl border-8 border-yellow-600 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.9)] p-8 bg-black/80">
+  <div class="w-full max-w-6xl border-8 border-yellow-600 rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.9)] p-8 bg-black/80">
 
     <!-- Header -->
     <h1 class="text-6xl text-center mb-10 tf2-title drop-shadow-[0_5px_10px_rgba(0,0,0,0.9)] tracking-widest">
@@ -88,23 +90,22 @@
       <table class="w-full border-collapse text-yellow-200 tf2-table">
         <thead>
           <tr>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">ID</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">Codename</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">Real Name</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-left">Comms</th>
-            <th class="border-b-4 border-yellow-600 px-4 py-4 text-center">Orders</th>
+            <th class="px-4 py-3 text-left">ID</th>
+            <th class="px-4 py-3 text-left">Codename</th>
+            <th class="px-4 py-3 text-left">Real Name</th>
+            <th class="px-4 py-3 text-left">Comms</th>
+            <th class="px-4 py-3 text-center">Orders</th>
           </tr>
         </thead>
         <tbody class="bg-gray-900/80">
           <?php if (!empty($users)): ?>
             <?php foreach ($users as $user): ?>
               <tr class="hover:bg-gray-800 transition">
-                <td class="border-b border-gray-700 px-4 py-3"><?= $user['id']; ?></td>
-                <!-- Changed red/blue codename to orange -->
-                <td class="border-b border-gray-700 px-4 py-3 font-bold text-orange-400 uppercase"><?= $user['lname']; ?></td>
-                <td class="border-b border-gray-700 px-4 py-3"><?= $user['fname']; ?></td>
-                <td class="border-b border-gray-700 px-4 py-3"><?= $user['email']; ?></td>
-                <td class="border-b border-gray-700 px-4 py-3 text-center space-x-3">
+                <td class="px-4 py-3"><?= $user['id']; ?></td>
+                <td class="px-4 py-3 font-bold text-orange-400 uppercase"><?= $user['lname']; ?></td>
+                <td class="px-4 py-3"><?= $user['fname']; ?></td>
+                <td class="px-4 py-3"><?= $user['email']; ?></td>
+                <td class="px-4 py-3 text-center space-x-3">
                   <a href="<?= site_url('users/update/'.$user['id']); ?>" 
                      class="tf2-btn tf2-btn-blue px-4 py-2 rounded-md">
                       ✏ Modify
