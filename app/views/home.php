@@ -1,140 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | TF2 Console</title>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg-primary: #2b2b2b;
-            --color-bg-secondary: rgba(30, 30, 30, 0.92);
-            --color-text-primary: #f0e6d2;
-            --color-accent-red: #a32121;
-            --color-accent-blu: #1f4fa3;
-            --color-highlight: #f2a900;
-            --font-display: 'Russo One', sans-serif;
-            --font-body: 'Roboto Slab', serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | TF2 Console</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-primary: #1c1a18;
+      --color-bg-panel: #2e2a26;
+      --color-border: #5a4d4c;
+      --color-text-primary: #f0e6d2;
+      --color-accent-red: #b8383b;
+      --color-accent-blu: #3b5b92;
+      --color-highlight: #d0843b;
+      --font-display: 'Russo One', sans-serif;
+      --font-body: 'Roboto Slab', serif;
+    }
 
-        body {
-            margin: 0;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--color-text-primary);
+      background: linear-gradient(135deg, var(--color-accent-red), var(--color-accent-blu)),
+        url("https://wiki.teamfortress.com/w/images/9/97/Class_Selection_background.png") center/cover no-repeat;
+      background-blend-mode: multiply;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-            /* Gradient + TF2 silhouettes background */
-            background: linear-gradient(135deg, var(--color-accent-red), var(--color-accent-blu)),
-                url("https://wiki.teamfortress.com/w/images/9/97/Class_Selection_background.png") center/cover no-repeat;
-            background-blend-mode: multiply;
-            color: var(--color-text-primary);
-            font-family: var(--font-body);
-        }
+    /* NAVBAR */
+    header {
+      background: var(--color-bg-panel);
+      border-bottom: 4px solid var(--color-highlight);
+      box-shadow: 0 4px 0 #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* Animations */
-        @keyframes fadeSlideUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+    header h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-highlight);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 0 #000;
+      margin: 0;
+    }
 
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color 0.25s;
+      font-size: 0.95rem;
+      font-family: var(--font-display);
+    }
 
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 600px;
-            background: var(--color-bg-secondary);
-            border: 2px solid var(--color-highlight);
-            box-shadow: 0 0 20px rgba(0,0,0,0.7);
-            padding: 3rem 2rem;
-            border-radius: 14px;
-            text-align: center;
-            animation: fadeSlideUp 1s ease forwards;
-        }
+    nav a:hover {
+      color: var(--color-highlight);
+    }
 
-        /* Title */
-        h1 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--color-highlight);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 0px #000;
-            opacity: 0;
-            animation: fadeSlideUp 1s ease forwards;
-            animation-delay: 0.2s;
-            position: relative;
-        }
+    /* MAIN */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
 
-        /* Blinking console cursor */
-        h1::after {
-            content: "_";
-            margin-left: 6px;
-            animation: blink 1s step-start infinite;
-            color: var(--color-highlight);
-        }
+    .container {
+      background: var(--color-bg-panel);
+      border: 4px solid var(--color-border);
+      border-radius: 12px;
+      box-shadow: 10px 10px 0 #000;
+      text-align: center;
+      padding: 3rem 2rem;
+      max-width: 640px;
+      width: 95%;
+      position: relative;
+    }
 
-        /* Button group */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            width: 100%;
-            align-items: center;
-        }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      right: -12px;
+      bottom: -12px;
+      border: 3px solid var(--color-accent-red);
+      pointer-events: none;
+    }
 
-        /* Buttons */
-        .main-btn {
-            display: block;
-            width: 100%;
-            max-width: 320px;
-            padding: 1rem 0;
-            background-color: var(--color-highlight);
-            color: #111;
-            text-decoration: none;
-            border: 2px solid #000;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            font-family: var(--font-display);
-            transition: all 0.25s ease;
-            cursor: pointer;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s ease forwards;
-        }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      color: var(--color-highlight);
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 0 #000;
+    }
 
-        .main-btn:nth-child(1) { animation-delay: 0.4s; }
-        .main-btn:nth-child(2) { animation-delay: 0.6s; }
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
 
-        .main-btn:hover {
-            background-color: #000;
-            color: var(--color-highlight);
-            box-shadow: 0 0 18px var(--color-highlight);
-            transform: scale(1.05);
-        }
+    .main-btn {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      padding: 1rem 0;
+      background-color: var(--color-highlight);
+      color: #111;
+      text-decoration: none;
+      border: 3px solid #000;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      font-family: var(--font-display);
+      transition: all 0.25s ease;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 6px 6px 0 #000;
+    }
 
-        /* Mobile */
-        @media (max-width: 480px) {
-            body { padding: 1rem; }
-            .container { padding: 2rem 1.5rem; }
-            h1 { margin-bottom: 2rem; }
-            .btn-group { gap: 1.2rem; }
-        }
-    </style>
+    .main-btn:hover {
+      background-color: #000;
+      color: var(--color-highlight);
+      box-shadow: 8px 8px 0 var(--color-highlight);
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--color-bg-panel);
+      border-top: 4px solid var(--color-highlight);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
+  <!-- NAVBAR -->
+  <header>
+    <h2>TF2 Console</h2>
+    <nav>
+      <a href="<?=site_url('users/show');?>">Roster</a>
+      <a href="<?=site_url('users/create');?>">Recruit</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
     <div class="container">
-        <h1>// TF2 SYSTEM CONSOLE</h1>
-        <div class="btn-group">
-            <a href="<?=site_url('users/show');?>" class="main-btn">> DEPLOY ROSTER</a>
-            <a href="<?=site_url('users/create');?>" class="main-btn">> ENLIST NEW RECRUIT</a>
-        </div>
+      <h1>// TF2 System Console</h1>
+      <div class="btn-group">
+        <a href="<?=site_url('users/show');?>" class="main-btn">> Deploy Roster</a>
+        <a href="<?=site_url('users/create');?>" class="main-btn">> Enlist New Recruit</a>
+      </div>
     </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 TF2 Console. Inspired by Team Fortress 2.
+  </footer>
 </body>
 </html>
