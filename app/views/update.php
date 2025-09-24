@@ -8,14 +8,15 @@
     <style>
         :root {
             --tf2-red: #b8383b;
-            --tf2-dark: #2e1e1f;
+            --tf2-blu: #4067b3;
+            --tf2-dark: #1a1010;
             --tf2-gray: #3f3a36;
             --tf2-light: #f8f1e1;
             --tf2-orange: #d0843b;
         }
 
         body {
-            background: linear-gradient(135deg, var(--tf2-dark), #1a1010);
+            background: radial-gradient(circle at top, #2b1a1b, #0d0a0a);
             color: var(--tf2-light);
             font-family: 'Roboto Slab', serif;
             margin: 0;
@@ -26,7 +27,7 @@
             min-height: 100vh;
 
             background-image:
-                repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 40px);
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 40px);
         }
 
         @keyframes fadeSlideUp {
@@ -36,11 +37,11 @@
 
         .form-container {
             width: 90%;
-            max-width: 540px;
+            max-width: 560px;
             background: var(--tf2-gray);
-            border: 3px solid var(--tf2-red);
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
-            padding: 2.5rem;
+            border: 4px solid var(--tf2-orange);
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.8);
+            padding: 2.8rem 2.5rem;
             border-radius: 6px;
             text-align: center;
             animation: fadeSlideUp 0.8s ease forwards;
@@ -48,15 +49,15 @@
         }
 
         h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
             font-family: 'Russo One', sans-serif;
             margin-bottom: 2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--tf2-orange);
             text-shadow: 2px 2px 0 #000;
-            border-bottom: 3px solid var(--tf2-red);
-            padding-bottom: 0.5rem;
+            border-bottom: 4px solid var(--tf2-red);
+            padding-bottom: 0.7rem;
         }
 
         form {
@@ -103,24 +104,24 @@
         button[type="submit"] {
             width: 100%;
             padding: 1rem 0;
-            background-color: var(--tf2-red);
+            background: linear-gradient(90deg, var(--tf2-red), #922d2e);
             color: #fff;
             border: none;
             border-radius: 4px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 3px 3px 0 #000;
+            box-shadow: 4px 4px 0 #000;
             transition: all 0.3s ease;
             font-family: 'Russo One', sans-serif;
         }
 
         button[type="submit"]:hover {
-            background-color: #922d2e;
+            background: linear-gradient(90deg, #922d2e, #701e1f);
             transform: translateY(-2px);
-            box-shadow: 5px 5px 0 #000;
+            box-shadow: 6px 6px 0 #000;
         }
 
         .back-link {
@@ -130,18 +131,20 @@
             color: var(--tf2-light);
             font-size: 0.9rem;
             padding: 0.6rem 1.2rem;
-            border: 2px solid var(--tf2-red);
+            border: 3px solid var(--tf2-red);
             border-radius: 4px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 1px;
             background: #241a1a;
+            box-shadow: 3px 3px 0 #000;
         }
 
         .back-link:hover {
             background-color: var(--tf2-red);
             color: #fff;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -164,7 +167,7 @@
                 <input type="email" id="email" name="email" value="<?= html_escape($user['email']); ?>" required>
             </div>
 
-            <button type="submit">Update Merc</button>
+            <button type="submit">Deploy Update</button>
         </form>
         <a href="<?= site_url('users/show'); ?>" class="back-link">⟵ Back to Roster</a>
     </div>

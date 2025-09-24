@@ -8,45 +8,55 @@
     <style>
         :root {
             --color-bg-primary: #2b2b2b;
-            --color-bg-secondary: rgba(50, 50, 50, 0.9);
+            --color-bg-secondary: rgba(30, 30, 30, 0.92);
             --color-text-primary: #f0e6d2;
-            --color-accent-red: #7d1a1a;
-            --color-accent-blu: #1a3b7d;
+            --color-accent-red: #a32121;
+            --color-accent-blu: #1f4fa3;
             --color-highlight: #f2a900;
-            --color-border: #4a4a4a;
             --font-display: 'Russo One', sans-serif;
             --font-body: 'Roboto Slab', serif;
         }
 
         body {
-            background: linear-gradient(135deg, var(--color-accent-red), var(--color-accent-blu));
-            color: var(--color-text-primary);
-            font-family: var(--font-body);
             margin: 0;
             padding: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+
+            /* Gradient + TF2 silhouettes background */
+            background: linear-gradient(135deg, var(--color-accent-red), var(--color-accent-blu)),
+                url("https://wiki.teamfortress.com/w/images/9/97/Class_Selection_background.png") center/cover no-repeat;
+            background-blend-mode: multiply;
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
         }
 
+        /* Animations */
         @keyframes fadeSlideUp {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Container */
         .container {
             width: 90%;
             max-width: 600px;
             background: var(--color-bg-secondary);
             border: 2px solid var(--color-highlight);
-            box-shadow: 0 0 18px rgba(0,0,0,0.6);
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
             padding: 3rem 2rem;
             border-radius: 14px;
             text-align: center;
             animation: fadeSlideUp 1s ease forwards;
         }
 
+        /* Title */
         h1 {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 5vw, 2.5rem);
@@ -59,8 +69,18 @@
             opacity: 0;
             animation: fadeSlideUp 1s ease forwards;
             animation-delay: 0.2s;
+            position: relative;
         }
 
+        /* Blinking console cursor */
+        h1::after {
+            content: "_";
+            margin-left: 6px;
+            animation: blink 1s step-start infinite;
+            color: var(--color-highlight);
+        }
+
+        /* Button group */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -69,20 +89,21 @@
             align-items: center;
         }
 
+        /* Buttons */
         .main-btn {
             display: block;
             width: 100%;
             max-width: 320px;
             padding: 1rem 0;
             background-color: var(--color-highlight);
-            color: #000;
+            color: #111;
             text-decoration: none;
             border: 2px solid #000;
             border-radius: 8px;
             font-weight: 700;
             font-size: clamp(1rem, 3vw, 1.2rem);
             font-family: var(--font-display);
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             cursor: pointer;
             opacity: 0;
             animation: fadeSlideUp 0.8s ease forwards;
@@ -94,9 +115,11 @@
         .main-btn:hover {
             background-color: #000;
             color: var(--color-highlight);
-            box-shadow: 0 0 15px var(--color-highlight);
+            box-shadow: 0 0 18px var(--color-highlight);
+            transform: scale(1.05);
         }
 
+        /* Mobile */
         @media (max-width: 480px) {
             body { padding: 1rem; }
             .container { padding: 2rem 1.5rem; }
