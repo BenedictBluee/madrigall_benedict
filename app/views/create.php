@@ -163,17 +163,17 @@
     <h1>// Recruit Mercenary</h1>
     <form action="<?= site_url('users/create'); ?>" method="post">
       <div class="form-group">
-        <label for="lname">Codename</label>
+        <label for="lname">Last Name</label>
         <input type="text" id="lname" name="lname" required>
       </div>
 
       <div class="form-group">
-        <label for="fname">Real Name</label>
+        <label for="fname">First Name</label>
         <input type="text" id="fname" name="fname" required>
       </div>
 
       <div class="form-group">
-        <label for="email">Comms Link</label>
+        <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
       </div>
 

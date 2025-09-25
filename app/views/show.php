@@ -91,9 +91,9 @@
         <thead>
           <tr>
             <th class="px-4 py-3 text-left">ID</th>
-            <th class="px-4 py-3 text-left">Codename</th>
-            <th class="px-4 py-3 text-left">Real Name</th>
-            <th class="px-4 py-3 text-left">Comms</th>
+            <th class="px-4 py-3 text-left">Last Name</th>
+            <th class="px-4 py-3 text-left">First Name</th>
+            <th class="px-4 py-3 text-left">Email</th>
             <th class="px-4 py-3 text-center">Orders</th>
           </tr>
         </thead>
