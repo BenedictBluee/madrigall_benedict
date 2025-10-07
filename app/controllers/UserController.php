@@ -98,13 +98,13 @@ class UserController extends Controller {
 
     public function login() {
         if ($this->io->method() == 'post') {
-            $username = $this->io->post('username');
+            $username = $this->io->post('name');
             $password = $this->io->post('password');
 
             $user = $this->UserModel->login($username, $password);
             if ($user) {
                 $this->session->set_userdata('user_id', $user['id']);
-                $this->session->set_userdata('username', $user['username']);
+                $this->session->set_userdata('name', $user['name']);
                 $this->session->set_userdata('role', $user['role']);
                 redirect('users/show');
             } else {
