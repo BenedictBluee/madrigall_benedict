@@ -176,9 +176,9 @@
 
     <form action="<?=site_url('register');?>" method="post" autocomplete="on">
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="name">Name</label>
         <div class="input-wrapper">
-          <input type="text" id="username" name="username" required autocomplete="username">
+          <input type="text" id="name" name="name" required autocomplete="name">
         </div>
       </div>
 

@@ -118,13 +118,13 @@ class UserController extends Controller {
 
     public function register() {
         if ($this->io->method() == 'post') {
-            $username = $this->io->post('username');
+            $username = $this->io->post('name');
             $email = $this->io->post('email');
             $password = $this->io->post('password');
             $role = $this->io->post('role') ?? 'user'; // get role from form or default to user
 
             $data = [
-                'username' => $username,
+                'name' => $username,
                 'email' => $email,
                 'password' => $password,
                 'role' => $role

@@ -170,9 +170,9 @@
 
     <form action="<?=site_url('login');?>" method="post" autocomplete="on">
       <div class="form-group">
-        <label for="username">USERNAME OR EMAIL</label>
+        <label for="name">USERNAME OR EMAIL</label>
         <div class="input-wrapper">
-          <input type="text" id="username" name="username" required autocomplete="username">
+          <input type="text" id="name" name="name" required autocomplete="name">
         </div>
       </div>
 
