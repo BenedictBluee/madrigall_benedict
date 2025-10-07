@@ -85,6 +85,56 @@
       </form>
     </div>
 
+                <!-- Create Button (Admin Only) -->
+                <?php
+                $current_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+                if ($current_role === 'admin'):
+                ?>
+                    <div class="relative group">
+                        <a href="<?= site_url('users/create'); ?>"
+                            class="w-10 h-10 bg-white rounded-full flex items-center justify-center transition hover:bg-gray-400"
+                            onclick="showLoading(event)">
+                            <img src="https://cdn-icons-png.flaticon.com/128/8377/8377219.png" alt="Create" class="w-6 h-6">
+                        </a>
+                        <!-- Tooltip -->
+                        <span
+                            class="absolute left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 text-xs rounded bg-gray-800 text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            Create
+                        </span>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Logout -->
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <div class="relative">
+                        <form action="<?= site_url('logout'); ?>" method="post" id="logoutForm" class="flex justify-center sm:justify-end">
+                            <button type="button"
+                                id="logoutBtn"
+                                class="px-5 py-2 bg-red-600 rounded-md hover:bg-red-700 transition font-semibold text-white w-full sm:w-auto">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Logout Confirmation Modal -->
+                    <div id="logoutModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                        <div class="bg-[#2a2f3a] p-6 rounded-lg w-80">
+                            <h2 class="text-lg font-bold mb-4 text-center">Confirm Logout</h2>
+                            <p class="mb-6 text-center">Are you sure you want to logout?</p>
+                            <div class="flex justify-center gap-4">
+                                <button id="confirmLogoutBtn"
+                                    class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md font-semibold">
+                                    Yes
+                                </button>
+                                <button id="cancelLogoutBtn"
+                                    class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md font-semibold">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
     <!-- Table -->
     <div class="overflow-x-auto">
       <table class="w-full border-collapse text-yellow-200 tf2-table">

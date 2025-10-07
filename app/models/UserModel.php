@@ -21,8 +21,8 @@ class UserModel extends Model {
 
             // Build LIKE conditions for search
             $query->like('id', '%'.$q.'%')
-                  ->or_like('fname', '%'.$q.'%')
-                  ->or_like('lname', '%'.$q.'%')
+                  ->or_like('first_name', '%'.$q.'%')
+                  ->or_like('last_name', '%'.$q.'%')
                   ->or_like('email', '%'.$q.'%');
 
             // Clone before pagination for counting
@@ -36,5 +36,23 @@ class UserModel extends Model {
 
             return $data;
         }
+    }
+
+    public function register($data) {
+        // Hash the password before saving
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        return $this->db->table('users')->insert($data);
+    }
+
+    public function login($username, $password) {
+        $user = $this->db->table('users')
+                         ->where('username', $username)
+                         ->or_where('email', $username)
+                         ->get();
+
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
+        }
+        return false;
     }
 }
