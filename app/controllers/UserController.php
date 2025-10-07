@@ -108,7 +108,7 @@ class UserController extends Controller {
                 $this->session->set_userdata('role', $user['role']);
                 redirect('users/show');
             } else {
-                $data['error'] = 'Invalid username or password';
+                $data['error'] = 'Invalid name or password';
                 $this->call->view('user_auth/login', $data);
             }
         } else {
