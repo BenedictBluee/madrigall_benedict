@@ -44,10 +44,10 @@ class UserModel extends Model {
         return $this->db->table('users')->insert($data);
     }
 
-    public function login($username, $password) {
+    public function login($name, $password) {
         $user = $this->db->table('users')
-                         ->where('username', $username)
-                         ->or_where('email', $username)
+                         ->where('name', $name)
+                         ->or_where('email', $name)
                          ->get();
 
         if ($user && password_verify($password, $user['password'])) {

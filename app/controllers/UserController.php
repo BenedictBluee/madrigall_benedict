@@ -98,10 +98,10 @@ class UserController extends Controller {
 
     public function login() {
         if ($this->io->method() == 'post') {
-            $username = $this->io->post('name');
+            $name = $this->io->post('name');
             $password = $this->io->post('password');
 
-            $user = $this->UserModel->login($username, $password);
+            $user = $this->UserModel->login($name, $password);
             if ($user) {
                 $this->session->set_userdata('user_id', $user['id']);
                 $this->session->set_userdata('name', $user['name']);
@@ -118,13 +118,13 @@ class UserController extends Controller {
 
     public function register() {
         if ($this->io->method() == 'post') {
-            $username = $this->io->post('name');
+            $name = $this->io->post('name');
             $email = $this->io->post('email');
             $password = $this->io->post('password');
             $role = $this->io->post('role') ?? 'user'; // get role from form or default to user
 
             $data = [
-                'name' => $username,
+                'name' => $name,
                 'email' => $email,
                 'password' => $password,
                 'role' => $role
