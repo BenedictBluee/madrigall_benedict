@@ -25,12 +25,12 @@
 
         <form action="<?= site_url('register'); ?>" method="post" class="space-y-5">
             <div>
-                <label for="username" class="block text-sm font-medium mb-1">Username:</label>
+                <label for="name" class="block text-sm font-medium mb-1">Username:</label>
                 <input
                     type="text"
-                    id="username"
-                    name="username"
-                    placeholder="username"
+                    id="name"
+                    name="name"
+                    placeholder="name"
                     required
                     class="w-full bg-[#1c2029] border border-[#353c4e] focus:border-[#5a6aff] focus:ring-2 focus:ring-[#5a6aff]/40 text-[#ebebeb] rounded-md px-3 py-2 text-sm outline-none transition" />
             </div>
